@@ -9,3 +9,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Contato {
+  id Int @id @default(autoincrement())
+  nome String
+  contato String
+  categorias String[]
+}
