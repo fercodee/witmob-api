@@ -4,7 +4,7 @@ export class ContactsUseCase {
   constructor(private contactRepository: IContactsRepository) {}
 
   async execute() {
-    const contacts = await this.contactRepository.getContacts();
+    const contacts = await this.contactRepository.getContactsByCategories();
     return contacts;
   }
 }
