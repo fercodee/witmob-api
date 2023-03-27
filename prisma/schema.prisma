@@ -13,6 +13,7 @@ datasource db {
 model Contato {
   id Int @id @default(autoincrement())
   nome String
-  contato String
-  categorias String[]
+  numero String
+  categorias String
+  @@map("Contatos")
 }
