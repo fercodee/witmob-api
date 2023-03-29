@@ -11,9 +11,29 @@ datasource db {
 }
 
 model Contato {
-  id Int @id @default(autoincrement())
-  nome String
-  numero String
-  categorias String
+  id               Int                @id @default(autoincrement())
+  nome             String
+  numero           String
+  categorias       String
+  ContatoCategoria ContatoCategoria[]
+
   @@map("Contatos")
+}
+
+model Categoria {
+  id               Int                @id
+  nome             String
+  ContatoCategoria ContatoCategoria[]
+
+  @@map("Categorias")
+}
+
+model ContatoCategoria {
+  id          Int       @id @default(autoincrement())
+  contanto    Contato   @relation(fields: [idContato], references: [id])
+  idContato   Int
+  categoria   Categoria @relation(fields: [idCategoria], references: [id])
+  idCategoria Int
+
+  @@map("ContatoCategorias")
 }

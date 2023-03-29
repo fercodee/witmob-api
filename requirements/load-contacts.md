@@ -8,5 +8,11 @@ The intermediate table will have two strangers keys, ex:
 "id_contact" and "id_category"
 
 
-- Create table contacts
-- Load Contacts by categories
+# Tasks
+[x] Create table contacts
+[x] Create Contatos and Categorias relationship
+
+
+[ ] Presentation: Load Contacts by categories 
+
+[ ] Test .csv import in DBeaver
