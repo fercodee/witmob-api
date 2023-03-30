@@ -11,8 +11,10 @@ The intermediate table will have two strangers keys, ex:
 # Tasks
 [x] Create table contacts
 [x] Create Contatos and Categorias relationship
+[x] Presentation: Controller for Load Contacts by categories 
+[x] Try create types of Entities in your domain
+[ ] Make route for DB refresh
 
 
-[ ] Presentation: Load Contacts by categories 
-
+# Backlog
 [ ] Test .csv import in DBeaver

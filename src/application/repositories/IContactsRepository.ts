@@ -1,8 +1,9 @@
-import { Contato, ContatoCategoria } from '@prisma/client';
+import { Contanto, ContatoByCategoryModel } from 'src/domain/models/Contact';
 
 export abstract class IContactsRepository {
   abstract getContactsByCategory(
     id: string,
-  ): Promise<(ContatoCategoria & { contanto: Contato })[]>;
-  abstract findAll(): any;
+  ): Promise<(ContatoByCategoryModel & { contanto: Contanto })[]>;
+  abstract findAll(): Promise<Contanto[]>;
+  abstract refreshContacts(): Promise<void>;
 }

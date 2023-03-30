@@ -1,15 +1,17 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { Contato, ContatoCategoria } from '@prisma/client';
 import { ContactsUseCase } from 'src/application/usecases/ContactsUseCase';
+import { Contanto, ContatoByCategoryModel } from 'src/domain/models/Contact';
 
 @Controller('contacts')
 export class ContactsController {
   constructor(private contactsUseCase: ContactsUseCase) {}
 
   @Get()
-  async findByCategory(): Promise<any> {
+  async findByCategory(
+    @Query('id') id: string,
+  ): Promise<(ContatoByCategoryModel & { contanto: Contanto })[]> {
     try {
-      return await this.contactsUseCase.execute();
+      return await this.contactsUseCase.execute(id);
     } catch (error) {
       return error;
     }
