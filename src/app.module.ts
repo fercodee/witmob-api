@@ -6,10 +6,14 @@ import { ContactsUseCase } from './application/usecases/ContactsUseCase';
 import { ContatosRepository } from './infra/database/repositories/ContatosRepository';
 import { PrismaService } from './infra/prisma.service';
 import { ContactsController } from './presentation/controllers/ContactsController';
+import { ICategoriesRepository } from './application/repositories/ICategoriesRepository';
+import { CategoriaRepository } from './infra/database/repositories/CategoriaRepository';
+import { CategoriesUseCase } from './application/usecases/CategegoriesUseCase';
+import { CategoryController } from './presentation/controllers/CategoryController';
 
 @Module({
   imports: [],
-  controllers: [AppController, ContactsController],
+  controllers: [AppController, ContactsController, CategoryController],
   providers: [
     AppService,
     PrismaService,
@@ -17,6 +21,11 @@ import { ContactsController } from './presentation/controllers/ContactsControlle
     {
       provide: IContactsRepository,
       useClass: ContatosRepository,
+    },
+    CategoriesUseCase,
+    {
+      provide: ICategoriesRepository,
+      useClass: CategoriaRepository,
     },
   ],
 })

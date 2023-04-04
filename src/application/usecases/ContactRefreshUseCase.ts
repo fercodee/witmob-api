@@ -1,9 +1,9 @@
 import { IContactsRepository } from '../repositories/IContactsRepository';
 
 export class ContactRefreshUseCase {
-  constructor(private contactsRepository: IContactsRepository) {}
+  constructor(private repository: IContactsRepository) {}
 
   async excute() {
-    return await this.contactsRepository.refreshContacts();
+    return await this.repository.refreshContacts();
   }
 }

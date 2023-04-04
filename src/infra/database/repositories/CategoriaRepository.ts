@@ -1,9 +1,14 @@
+import { Injectable } from '@nestjs/common';
+import { ICategoriesRepository } from 'src/application/repositories/ICategoriesRepository';
+import { Categoria } from 'src/domain/models/Categoria';
 import { PrismaService } from 'src/infra/prisma.service';
 
-export class CategoriaRepository {
+@Injectable()
+export class CategoriaRepository implements ICategoriesRepository {
   constructor(private prisma: PrismaService) {}
 
-  async findAll() {
-    return await this.prisma.categoria.findMany();
+  async all(): Promise<Categoria[]> {
+    const result = await this.prisma.categoria.findMany();
+    return result;
   }
 }
