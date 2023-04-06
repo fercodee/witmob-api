@@ -2,10 +2,10 @@ export abstract class ContatoByCategoryModel {
   id: number;
   idContato: number;
   idCategoria: number;
-  contanto: Contanto;
+  contanto: ContatoModel;
 }
 
-export abstract class Contanto {
+export abstract class ContatoModel {
   id: number;
   nome: string;
   numero: string;

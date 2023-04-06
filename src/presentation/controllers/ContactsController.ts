@@ -8,7 +8,7 @@ export class ContactsController {
 
   @Get()
   async findByCategory(
-    @Query('id') id: string,
+    @Query('category_id') id: string,
   ): Promise<(ContatoByCategoryModel & { contanto: Contanto })[]> {
     try {
       return await this.contactsUseCase.execute(id);
