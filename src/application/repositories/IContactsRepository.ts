@@ -7,6 +7,6 @@ export abstract class IContactsRepository {
   abstract getContactsByCategory(
     id: string,
   ): Promise<(ContatoByCategoryModel & { contanto: ContatoModel })[]>;
-  abstract findAll(): Promise<Contanto[]>;
+  abstract findAll(): Promise<ContatoModel[]>;
   abstract refreshContacts(): Promise<void>;
 }
