@@ -1,20 +1,20 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { ContactsUseCase } from 'src/application/usecases/ContactsUseCase';
+import { ClienteUseCase } from 'src/application/usecases/ClientesUseCase';
 import {
-  ContatoModel,
-  ContatoByCategoryModel,
-} from 'src/domain/models/Contact';
+  ClienteModel,
+  ClienteBySegmentoModel,
+} from 'src/domain/models/Cliente';
 
 @Controller('contacts')
 export class ContactsController {
-  constructor(private contactsUseCase: ContactsUseCase) {}
+  constructor(private usecase: ClienteUseCase) {}
 
   @Get()
   async findByCategory(
     @Query('category_id') id: string,
-  ): Promise<(ContatoByCategoryModel & { contanto: ContatoModel })[]> {
+  ): Promise<(ClienteBySegmentoModel & { cliente: ClienteModel })[]> {
     try {
-      return await this.contactsUseCase.execute(id);
+      return await this.usecase.execute(id);
     } catch (error) {
       return error;
     }

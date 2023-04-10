@@ -1,13 +1,13 @@
 import { Controller, Get } from '@nestjs/common';
-import { CategoriesUseCase } from 'src/application/usecases/CategegoriesUseCase';
-import { Categoria } from 'src/domain/models/Categoria';
+import { SegmentoUseCase } from 'src/application/usecases/SegmentoUseCase';
+import { Segmento } from 'src/domain/models/Segmento';
 
 @Controller('categories')
 export class CategoryController {
-  constructor(private useCase: CategoriesUseCase) {}
+  constructor(private useCase: SegmentoUseCase) {}
 
   @Get()
-  async findAll(): Promise<Categoria[]> {
+  async findAll(): Promise<Segmento[]> {
     try {
       return await this.useCase.execute();
     } catch (error) {

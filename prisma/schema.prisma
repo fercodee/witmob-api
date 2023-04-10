@@ -10,30 +10,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Contato {
-  id               Int                @id @default(autoincrement())
-  nome             String
-  numero           String
-  categorias       String
-  ContatoCategoria ContatoCategoria[]
+model Cliente {
+  id              Int               @id @default(autoincrement())
+  cliente         String
+  telefone        String
+  segmento        String
+  ClienteSegmento ClienteSegmento[]
 
-  @@map("Contatos")
+  @@map("Clientes")
 }
 
-model Categoria {
-  id               Int                @id
-  nome             String
-  ContatoCategoria ContatoCategoria[]
+model Segmento {
+  id              Int               @id
+  nome            String
+  ClienteSegmento ClienteSegmento[]
 
-  @@map("Categorias")
+  @@map("Segmentos")
 }
 
-model ContatoCategoria {
-  id          Int       @id @default(autoincrement())
-  contanto    Contato   @relation(fields: [idContato], references: [id])
-  idContato   Int
-  categoria   Categoria @relation(fields: [idCategoria], references: [id])
-  idCategoria Int
+model ClienteSegmento {
+  id         Int      @id @default(autoincrement())
+  cliente    Cliente  @relation(fields: [idCliente], references: [id])
+  idCliente  Int
+  segmento   Segmento @relation(fields: [idSegmento], references: [id])
+  idSegmento Int
 
-  @@map("ContatoCategorias")
+  @@map("ClientesSegmentos")
 }

@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { IContactsRepository } from './application/repositories/IContactsRepository';
-import { ContactsUseCase } from './application/usecases/ContactsUseCase';
-import { ContatosRepository } from './infra/database/repositories/ContatosRepository';
+import { IClientsRepository } from './application/repositories/IClientesRepository';
+import { ClienteUseCase } from './application/usecases/ClientesUseCase';
+import { ClientesRepository } from './infra/database/repositories/ClientesRepository';
 import { PrismaService } from './infra/prisma.service';
 import { ContactsController } from './presentation/controllers/ContactsController';
-import { ICategoriesRepository } from './application/repositories/ICategoriesRepository';
-import { CategoriaRepository } from './infra/database/repositories/CategoriaRepository';
-import { CategoriesUseCase } from './application/usecases/CategegoriesUseCase';
+import { ICategoriesRepository } from './application/repositories/ISegmentoRepository';
+import { CategoriaRepository } from './infra/database/repositories/SegmentoRepository';
+import { SegmentoUseCase } from './application/usecases/SegmentoUseCase';
 import { CategoryController } from './presentation/controllers/CategoryController';
 
 @Module({
@@ -17,12 +17,12 @@ import { CategoryController } from './presentation/controllers/CategoryControlle
   providers: [
     AppService,
     PrismaService,
-    ContactsUseCase,
+    ClienteUseCase,
     {
-      provide: IContactsRepository,
-      useClass: ContatosRepository,
+      provide: IClientsRepository,
+      useClass: ClientesRepository,
     },
-    CategoriesUseCase,
+    SegmentoUseCase,
     {
       provide: ICategoriesRepository,
       useClass: CategoriaRepository,

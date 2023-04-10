@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { IContactsRepository } from '../repositories/IContactsRepository';
+import { IClientsRepository } from '../repositories/IClientesRepository';
 
 @Injectable()
-export class ContactsUseCase {
-  constructor(private repository: IContactsRepository) {}
+export class ClienteUseCase {
+  constructor(private repository: IClientsRepository) {}
 
   async execute(id: string) {
     const contacts = await this.repository.getContactsByCategory(id);

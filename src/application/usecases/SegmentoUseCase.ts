@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { ICategoriesRepository } from '../repositories/ICategoriesRepository';
+import { ICategoriesRepository } from '../repositories/ISegmentoRepository';
 
 @Injectable()
-export class CategoriesUseCase {
+export class SegmentoUseCase {
   constructor(private repository: ICategoriesRepository) {}
 
   async execute() {
