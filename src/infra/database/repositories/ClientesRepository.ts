@@ -27,7 +27,19 @@ export class ClientesRepository implements IClientsRepository {
     return result;
   }
 
-  async refreshContacts(): Promise<void> {
-    throw new Error('Not implemented');
+  async refreshClients(): Promise<void> {
+    const clients = await this.prisma.cliente.findMany();
+    for (let index = 0; index < clients.length; index++) {
+      const element = clients[index];
+      const segments = element.segmento.split(',');
+      segments.forEach(async (v) => {
+        await this.prisma.clienteSegmento.create({
+          data: {
+            idCliente: element.id,
+            idSegmento: parseInt(v),
+          },
+        });
+      });
+    }
   }
 }

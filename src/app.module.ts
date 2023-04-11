@@ -10,6 +10,7 @@ import { ICategoriesRepository } from './application/repositories/ISegmentoRepos
 import { CategoriaRepository } from './infra/database/repositories/SegmentoRepository';
 import { SegmentoUseCase } from './application/usecases/SegmentoUseCase';
 import { CategoryController } from './presentation/controllers/CategoryController';
+import { ClienteRefreshUseCase } from './application/usecases/ClientesRefreshUseCase';
 
 @Module({
   imports: [],
@@ -27,6 +28,7 @@ import { CategoryController } from './presentation/controllers/CategoryControlle
       provide: ICategoriesRepository,
       useClass: CategoriaRepository,
     },
+    ClienteRefreshUseCase,
   ],
 })
 export class AppModule {}

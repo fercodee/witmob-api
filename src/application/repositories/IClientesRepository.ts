@@ -7,5 +7,5 @@ export abstract class IClientsRepository {
   abstract getContactsByCategory(
     id: string,
   ): Promise<(ClienteBySegmentoModel & { cliente: ClienteModel })[]>;
-  abstract refreshContacts(): Promise<void>;
+  abstract refreshClients(): Promise<void>;
 }
