@@ -15,7 +15,7 @@ export class ContactsController {
 
   @Get()
   async findByCategory(
-    @Query('segment_id') id: string,
+    @Query('segmento_id') id: string,
   ): Promise<(ClienteBySegmentoModel & { cliente: ClienteModel })[]> {
     try {
       return await this.clientUsecase.execute(id);
