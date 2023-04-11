@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { SegmentoUseCase } from 'src/application/usecases/SegmentoUseCase';
 import { Segmento } from 'src/domain/models/Segmento';
 
-@Controller('categories')
+@Controller('segments')
 export class CategoryController {
   constructor(private useCase: SegmentoUseCase) {}
 
