@@ -1,6 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
+import { get } from 'http';
 import { ClienteRefreshUseCase } from 'src/application/usecases/ClientesRefreshUseCase';
 import { ClienteUseCase } from 'src/application/usecases/ClientesUseCase';
+import { DropDBUseCase } from 'src/application/usecases/DropDBUseCase';
 import {
   ClienteModel,
   ClienteBySegmentoModel,
@@ -11,6 +13,7 @@ export class ContactsController {
   constructor(
     private clientUsecase: ClienteUseCase,
     private refreshDBUseCase: ClienteRefreshUseCase,
+    private dropDBUseCase: DropDBUseCase
   ) {}
 
   @Get()
@@ -32,4 +35,14 @@ export class ContactsController {
       return error;
     }
   }
+
+  @Get('drop')
+  async deleteDB(): Promise<void> {
+    try {
+      await this.dropDBUseCase.execute();
+    } catch (error) {
+      return error;
+    }
+  }
+  
 }
